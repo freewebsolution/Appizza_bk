@@ -61,7 +61,11 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::findOrFail($id);
+        $data = [
+            'user'=> $user
+        ];
+        return view('sections.users.edit')->with('data',$data);
     }
 
     /**
