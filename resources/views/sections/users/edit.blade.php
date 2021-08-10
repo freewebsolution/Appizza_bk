@@ -11,15 +11,15 @@
                 />
                 <x-auth-session-status class="mb-4"
                                        :status="session('status')" />
-                <x-users-form class="overflow-hidden bg-white rounded-lg
+                <x-pizze-form class="overflow-hidden bg-white rounded-lg
 shadow" method="POST"
-                              action="{{route('users.update', $data['user']->id)
+                              action="{{route('pizze.update', $data['user']->id)
 }}" enctype='multipart/form-data'
                               autocomplete="off"
                               :user="$data['user']">
                     @csrf
                     @method('PUT')
-                </x-users-form>
+                </x-pizze-form>
             </div>
         </div>
     </div>

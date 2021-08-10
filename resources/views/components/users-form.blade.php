@@ -7,7 +7,7 @@
                 <div class="flex flex-col p-6">
                     <ol class="inline-flex p-0 list-none">
                         <li class="flex items-center">
-                            <a href="{{ route('users.index') }}"
+                            <a href="{{ route('pizze.index') }}"
                                class="font-semibold leading-relaxed text-gray600"> {{ __('Utenti') }}</a>
                         </li>
                         @isset($user)

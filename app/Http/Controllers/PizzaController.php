@@ -14,7 +14,11 @@ class PizzaController extends Controller
      */
     public function index()
     {
-        //
+        $pizze = Pizza::latest()->paginate(10);
+        $data = [
+            'pizze' => $pizze,
+        ];
+        return view('sections.pizze.index')->with('data', $data);
     }
 
     /**
