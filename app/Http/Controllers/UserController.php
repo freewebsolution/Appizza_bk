@@ -30,7 +30,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view ('sections.users.create');
     }
 
     /**
@@ -41,7 +41,25 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:191|alpha_dash',
+            'email' => 'required|string|email|max:191|unique:users',
+            'avatar' =>
+                'nullable|image|mimes:jpeg,jpg,gif,png,svg|max:2048',
+            'password' => 'required|string|min:8'
+        ]);
+        $request->merge(['password' => Hash::make($request['password'])]);
+        $user = User::create($request->except('avatar'));
+        if ($request->hasFile('avatar')) {
+            $destinationPath = 'img/avatar/';
+            $name = Str::of($user->name)->lower()->slug() . '-' . $user->id
+                . '.' . $request->file('avatar')->getClientOriginalExtension();;
+            $request->file('avatar')->move($destinationPath, $name);
+            $user->avatar = $destinationPath . $name;
+        }
+        $user->update();
+        return redirect()->route('users.index');
+
     }
 
     /**
