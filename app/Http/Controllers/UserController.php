@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Faker\Provider\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -132,6 +133,14 @@ successo.');
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+        $user->delete();
+        $nomeImg = $user->avatar;
+        $nomeImg = explode('img/avatar/',$nomeImg);
+        $nomeImg = $nomeImg[1];
+        if(file_exists(public_path("img/avatar/".$nomeImg ))){
+            unlink(public_path("img/avatar/".$nomeImg));
+        }
+        return redirect()->route('users.index');
     }
 }
