@@ -15,8 +15,11 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('users.index')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.*')">
                         {{ __('Utenti') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('pizze.index')" :active="request()->routeIs('pizze.*')">
+                        {{ __('Pizze') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -69,8 +72,11 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('users.index')" :active="request()->routeIs('dashboard')">
+            <x-responsive-nav-link :href="route('users.index')" :active="request()->routeIs('users.*')">
                 {{ __('Utenti') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('pizze.index')" :active="request()->routeIs('pizze.*')">
+                {{ __('Pizze') }}
             </x-responsive-nav-link>
         </div>
 

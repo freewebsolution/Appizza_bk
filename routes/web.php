@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\PizzaController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,14 +19,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::middleware(['auth'])->group(function(){
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
 
-//Route::get('/users', function () {
-//    return view('sections.users.index');
-//})->middleware(['auth'])->name('users.index');
+    Route::resource('users',UserController::class);
+    Route::resource('pizze',PizzaController::class);
 
-Route::resource('users',\App\Http\Controllers\UserController::class)->middleware(['auth']);
+});
+
+
 
 require __DIR__.'/auth.php';
