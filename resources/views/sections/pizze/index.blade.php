@@ -35,61 +35,53 @@ border-green-400 rounded-lg appearance-none focus:outline-none">
                         </tr>
                         </thead>
                         <tbody class="bg-white">
-                        @forelse($data['pizze'] as $post)
+                        @forelse($data['pizze'] as $pizza)
                             <tr class="cursor-pointer hover:bg-gray-100">
                                 <td class="px-4 py-4 border-b border-gray-200
 md:whitespace-no-wrap">
                                     <div class="flex items-center">
-                                        <div class="flex-shrink-0 w-10 h-10">
-                                            <img class="w-10 h-10 rounded-full"
-                                                 src="{{isset($post->featured_image) ? $post->featured_image :
+                                        <div class="flex-shrink-0 w-20 h-20">
+                                            <img class="w-20 h-20 rounded-full"
+                                                 src="{{isset($pizza->featured_image) ? $pizza->featured_image :
 'https://via.placeholder.com/256'}}" alt=""/>
                                         </div>
                                         <div class="ml-4">
-                                            <div class="text-sm font-medium
-leading-5 text-gray-900">{{$post->title}}</div>
-                                            <div class="text-sm leading-5 textgray-500 md:block">{{$post->authorName->name}}</div>
+                                            <div class="text-3xl font-medium
+leading-5 text-gray-900">Pizza {{$pizza->name}}</div>
+                                            <div class="text-lg leading-5 textgray-500 md:block mt-2">User: {{$pizza->authorName->name}}</div>
+                                            <div class="text-lg text-red-500 leading-5 textgray-500 mt-2">Price: {{$pizza->price}} €</div>
+                                            <div class="text-lg leading-5 text-green-700 mt-2">Ingredienti: {{$pizza->ingrediants}}</div>
                                         </div>
                                     </div>
                                 </td>
                                 <td class="px-2 py-4 text-sm font-medium
 leading-5 text-right border-b border-gray-200 md:px-6 md:whitespace-nowrap">
                                     <div class="flex justify-end space-x-1">
-                                        <a href="{{route('pizze.show',$post->id)}}"
+                                        <a href="{{route('pizze.show',$pizza->id)}}"
                                            class="p-1 ml-3 border-2 border-blue-200 rounded-md hover:bg-blue-100">
-                                            <svg class="w-4 h-4 text-blue-500"
-                                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                 stroke="currentColor">
-                                                <path stroke-linecap="round"
-                                                      stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016
-0z" />
-                                                <path stroke-linecap="round"
-                                                      stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5
-12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-
-8.268-2.943-9.542-7z" />
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                                             </svg>
                                         </a>
-                                        <a href="{{route('pizze.edit',$post->id)}}" class="p-1 ml-3 border-2 border-indigo-200 rounded-md hover:bgindigo-100">
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                stroke="currentColor" class="w-4 h-4 text-indigo-500">
-                                                <path stroke-linecap="round"
-                                                      stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z">
-                                                </path>
+                                        <a href="{{route('pizze.edit',$pizza->id)}}" class="p-1 ml-3 border-2 border-indigo-200 rounded-md hover:bgindigo-100">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-300"
+                                                 fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
                                             </svg>
                                         </a>
                                         <form action="{{route('pizze.destroy',
-$post->id)}}" method="POST" class="">
+$pizza->id)}}" method="pizza" class="">
                                             @csrf
                                             @method('DELETE')
                                             <button class="p-1 border-2
 border-red-200 rounded-md hover:bg-red-100">
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                    stroke="currentColor" class="w-4 h-4 text-red-500">
-                                                    <path strokelinecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867
-12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-
-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-500" fill="none" viewBox="0 0 24 24"
+                                                     stroke="currentColor" onclick="return confirm('Vuoi davvero eliminare la pizza:  {{$pizza->name}} ?')">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                          d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
                                                 </svg>
                                             </button>
                                         </form>

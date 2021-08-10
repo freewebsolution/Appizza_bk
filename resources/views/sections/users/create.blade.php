@@ -11,15 +11,15 @@
                 <x-auth-validation-errors class="mb-4" :errors="$errors" />
                 <x-auth-session-status class="mb-4"
                                        :status="session('status')" />
-                <x-pizze-form class="overflow-hidden bg-white rounded-lg
+                <x-users-form class="overflow-hidden bg-white rounded-lg
 shadow" method="POST"
-                              action="{{ route('pizze.store') }}"
+                              action="{{ route('users.store') }}"
                               enctype='multipart/form-data'
                               autocomplete="off">
                     @csrf
                     @method('POST')
 
-                </x-pizze-form>
+                </x-users-form>
             </div>
         </div>
     </div>
