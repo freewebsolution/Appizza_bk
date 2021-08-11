@@ -72,7 +72,7 @@ leading-5 text-right border-b border-gray-200 md:px-6 md:whitespace-nowrap">
                                             </svg>
                                         </a>
                                         <form action="{{route('pizze.destroy',
-$pizza->id)}}" method="pizza" class="">
+$pizza->id)}}" method="POST" class="">
                                             @csrf
                                             @method('DELETE')
                                             <button class="p-1 border-2

@@ -12,11 +12,8 @@
                         </li>
                         @isset($pizza)
                             <li class="flex items-center">
-                                <svg class="w-3 h-3 mx-3 text-gray-600 fillcurrent" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
-                                    <path d="M285.476 272.971L91.132 467.314c9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-
-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-
-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475
-239.03c9.373 9.372 9.373 24.568.001 33.941z"/>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                                 </svg>
                                 <span class="font-semibold leading-relaxed textblack ">{{$pizza->name}}</span>
 

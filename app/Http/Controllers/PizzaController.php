@@ -44,7 +44,7 @@ class PizzaController extends Controller
         $request->validate([
             'name' => 'required|string',
             'ingrediants' => 'required',
-            'price'=>'required',
+            'price' => 'required',
             'featured_image' =>
                 'nullable|image|mimes:jpeg,jpg,gif,png,svg|max:2048',
         ]);
@@ -52,7 +52,7 @@ class PizzaController extends Controller
         $pizza = Pizza::create([
             'name' => $request->name,
             'slug' => $slug,
-            'price'=>$request->price,
+            'price' => $request->price,
             'ingrediants' => $request->ingrediants,
             'author_id' => Auth::id()
 
@@ -78,9 +78,15 @@ class PizzaController extends Controller
      * @param \App\Models\Pizza $pizza
      * @return \Illuminate\Http\Response
      */
-    public function show(Pizza $pizza)
+    public function show($id)
     {
-        //
+        {
+            $pizza = Pizza::findOrFail($id);
+            $data = [
+                'pizza' => $pizza
+            ];
+            return view('sections.pizze.show')->with('data', $data);
+        }
     }
 
     /**
@@ -89,9 +95,13 @@ class PizzaController extends Controller
      * @param \App\Models\Pizza $pizza
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pizza $pizza)
+    public function edit($id)
     {
-        //
+        $pizza = Pizza::findOrFail($id);
+        $data = [
+            'pizza' => $pizza
+        ];
+        return view('sections.pizze.edit')->with('data',$data);
     }
 
     /**
@@ -101,9 +111,33 @@ class PizzaController extends Controller
      * @param \App\Models\Pizza $pizza
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pizza $pizza)
+    public function update(Request $request, $id)
     {
-        //
+        {
+
+            $pizza = Pizza::findOrFail($id);
+            $request->validate([
+                'name' => 'required|string',
+                'ingrediants' => 'required|string',
+                'price' => 'required',
+                'featured_image' =>
+                    'nullable|image|mimes:jpeg,jpg,gif,png,svg|max:2048',
+            ]);
+            $currentCover = $pizza->featured_image;
+            $pizza->update($request->except('featured_image'));
+            if ($request->file('featured_image') != $currentCover && $request->hasFile('featured_image')) {
+                @unlink(public_path('/') . $pizza->featured_image);
+                $destinationPath = 'img/featured-image/';
+                $name = Str::of($pizza->title)->lower()->slug() . '-' . $pizza->id . '.' . $request->file('featured_image')->getClientOriginalExtension();;
+                $request->file('featured_image')->move($destinationPath,
+                    $name);
+                $pizza->featured_image = $destinationPath . $name;
+            }
+
+            $pizza->update();
+            return redirect()->route('pizze.index');
+        }
+
     }
 
     /**
@@ -112,8 +146,16 @@ class PizzaController extends Controller
      * @param \App\Models\Pizza $pizza
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pizza $pizza)
+    public function destroy($id)
     {
-        //
+        $pizza = Pizza::findOrFail($id);
+        $pizza->delete();
+        $nomeImg = $pizza->featured_image;
+        $nomeImg = explode('img/featured-image/',$nomeImg);
+        $nomeImg = $nomeImg[1];
+        if(file_exists(public_path("img/featured-image/".$nomeImg ))){
+            unlink(public_path("img/featured-image/".$nomeImg));
+        }
+        return redirect()->route('pizze.index');
     }
 }

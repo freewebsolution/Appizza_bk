@@ -13,7 +13,7 @@ class CreatepizzeTable extends Migration
      */
     public function up()
     {
-        Schema::create('pizze', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
@@ -32,6 +32,6 @@ class CreatepizzeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pizze');
+        Schema::dropIfExists('users');
     }
 }
