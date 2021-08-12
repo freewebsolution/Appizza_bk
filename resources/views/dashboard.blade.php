@@ -11,5 +11,10 @@
                 <x-card-stats :data="$card"></x-card-stats>
             @endforeach
         </div>
+        <div class="flex flex-wrap py-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+            @foreach($data['lasts'] as $last )
+                <x-card-last :data="$last"></x-card-last>
+            @endforeach
+        </div>
     </div>
 </x-app-layout>
