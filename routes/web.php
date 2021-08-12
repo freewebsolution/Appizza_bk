@@ -22,6 +22,7 @@ Route::get('/', function () {
 
 Route::middleware(['auth'])->group(function(){
     Route::get('dashboard',[DashboardController::class,'index'])->name('dashboard');
+    Route::get('profilo',[DashboardController::class,'profile'])->name('profilo');
     Route::resource('users',UserController::class);
     Route::resource('pizze',PizzaController::class);
 
