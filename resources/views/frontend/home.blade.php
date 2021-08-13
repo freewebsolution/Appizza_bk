@@ -5,5 +5,6 @@
     @include('frontend.sections.intro')
     @include('frontend.sections.about')
     @include('frontend.sections.services')
+    @include('frontend.sections.menu')
     @include('frontend.sections.counter')
 @endsection

@@ -128,7 +128,7 @@ class PizzaController extends Controller
             if ($request->file('featured_image') != $currentCover && $request->hasFile('featured_image')) {
                 @unlink(public_path('/') . $pizza->featured_image);
                 $destinationPath = 'img/featured-image/';
-                $name = Str::of($pizza->title)->lower()->slug() . '-' . $pizza->id . '.' . $request->file('featured_image')->getClientOriginalExtension();;
+                $name = Str::of($pizza->name)->lower()->slug() . '-' . $pizza->id . '.' . $request->file('featured_image')->getClientOriginalExtension();;
                 $request->file('featured_image')->move($destinationPath,
                     $name);
                 $pizza->featured_image = $destinationPath . $name;

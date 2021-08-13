@@ -11,88 +11,38 @@
         </div>
         <div class="container-wrap">
             <div class="row no-gutters d-flex">
-                <div class="col-lg-4 d-flex ftco-animate">
-                    <div class="services-wrap d-flex">
-                        <a href="#" class="img" style="background-image: url({{url('img/bg/pizza-1.jpg')}});"></a>
-                        <div class="text p-4">
-                            <h3>Italian Pizza</h3>
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia and
-                                Consonantia </p>
-                            <p class="price"><span>$2.90</span> <a href="#"
-                                                                   class="ml-2 btn btn-white btn-outline-white">Order</a>
-                            </p>
+                @foreach($data['pizze'] as $pizza)
+                    @if($loop->index === 0 || $loop->index === 1 || $loop->index === 2)
+                        <div class="col-lg-4 d-flex ftco-animate">
+                            <div class="services-wrap d-flex">
+                                <a href="#" class="img" style="background-image: url({{$pizza->featured_image}});"></a>
+                                <div class="text p-4">
+                                    <h3>{{$pizza->name}}</h3>
+                                    <p>{{$pizza->ingrediants}}</p>
+                                    <p class="price"><span>{{$pizza->price}} €</span>
+                                        <a href="#"
+                                           class="ml-2 btn btn-white btn-outline-white">Order</a>
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 d-flex ftco-animate">
-                    <div class="services-wrap d-flex">
-                        <a href="#" class="img" style="background-image: url({{url('img/bg/pizza-2.jpg')}});"></a>
-                        <div class="text p-4">
-                            <h3>Greek Pizza</h3>
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia and
-                                Consonantia</p>
-                            <p class="price"><span>$2.90</span> <a href="#"
-                                                                   class="ml-2 btn btn-white btn-outline-white">Order</a>
-                            </p>
+                        @elseIf($loop->index === 3 || $loop->index === 4 || $loop->index === 5)
+                        <div class="col-lg-4 d-flex ftco-animate">
+                            <div class="services-wrap d-flex">
+                                <div class="text p-4">
+                                    <h3>{{$pizza->name}}</h3>
+                                    <p>{{$pizza->ingrediants}}</p>
+                                    <p class="price"><span>{{$pizza->price}} €</span>
+                                        <a href="#"
+                                           class="ml-2 btn btn-white btn-outline-white">Order</a>
+                                    </p>
+                                </div>
+                                <a href="#" class="img" style="background-image: url({{$pizza->featured_image}});"></a>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 d-flex ftco-animate">
-                    <div class="services-wrap d-flex">
-                        <a href="#" class="img" style="background-image: url({{url('img/bg/pizza-3.jpg')}})"></a>
-                        <div class="text p-4">
-                            <h3>Caucasian Pizza</h3>
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia and
-                                Consonantia</p>
-                            <p class="price"><span>$2.90</span> <a href="#"
-                                                                   class="ml-2 btn btn-white btn-outline-white">Order</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                    @endif
+                @endforeach
 
-                <div class="col-lg-4 d-flex ftco-animate">
-                    <div class="services-wrap d-flex">
-                        <a href="#" class="img order-lg-last"
-                           style="background-image: url({{url('img/bg/pizza-4.jpg')}})"></a>
-                        <div class="text p-4">
-                            <h3>American Pizza</h3>
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia and
-                                Consonantia </p>
-                            <p class="price"><span>$2.90</span> <a href="#"
-                                                                   class="ml-2 btn btn-white btn-outline-white">Order</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 d-flex ftco-animate">
-                    <div class="services-wrap d-flex">
-                        <a href="#" class="img order-lg-last"
-                           style="background-image:url({{ url('img/bg/pizza-5.jpg')}})"></a>
-                        <div class="text p-4">
-                            <h3>Tomatoe Pie</h3>
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia and
-                                Consonantia</p>
-                            <p class="price"><span>$2.90</span> <a href="#"
-                                                                   class="ml-2 btn btn-white btn-outline-white">Order</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 d-flex ftco-animate">
-                    <div class="services-wrap d-flex">
-                        <a href="#" class="img order-lg-last"
-                           style="background-image: url({{url('img/bg/pizza-6.jpg')}})"></a>
-                        <div class="text p-4">
-                            <h3>Margherita</h3>
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia and
-                                Consonantia</p>
-                            <p class="price"><span>$2.90</span> <a href="#"
-                                                                   class="ml-2 btn btn-white btn-outline-white">Order</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
         <div class="container">
