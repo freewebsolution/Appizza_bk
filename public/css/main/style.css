@@ -4623,7 +4623,7 @@ button.close {
   .bs-popover-top .arrow::before, .bs-popover-auto[x-placement^="top"] .arrow::before {
     bottom: 0;
     border-top-color: rgba(0, 0, 0, 0.25); }
-  
+
   .bs-popover-top .arrow::after,
   .bs-popover-auto[x-placement^="top"] .arrow::after {
     bottom: 1px;
@@ -4643,7 +4643,7 @@ button.close {
   .bs-popover-right .arrow::before, .bs-popover-auto[x-placement^="right"] .arrow::before {
     left: 0;
     border-right-color: rgba(0, 0, 0, 0.25); }
-  
+
   .bs-popover-right .arrow::after,
   .bs-popover-auto[x-placement^="right"] .arrow::after {
     left: 1px;
@@ -4660,7 +4660,7 @@ button.close {
   .bs-popover-bottom .arrow::before, .bs-popover-auto[x-placement^="bottom"] .arrow::before {
     top: 0;
     border-bottom-color: rgba(0, 0, 0, 0.25); }
-  
+
   .bs-popover-bottom .arrow::after,
   .bs-popover-auto[x-placement^="bottom"] .arrow::after {
     top: 1px;
@@ -4689,7 +4689,7 @@ button.close {
   .bs-popover-left .arrow::before, .bs-popover-auto[x-placement^="left"] .arrow::before {
     right: 0;
     border-left-color: rgba(0, 0, 0, 0.25); }
-  
+
   .bs-popover-left .arrow::after,
   .bs-popover-auto[x-placement^="left"] .arrow::after {
     right: 1px;
@@ -7274,7 +7274,7 @@ body {
   line-height: 1.8;
   font-weight: 300;
   color: gray;
-  background: url(../images/bg_4.jpg) no-repeat fixed;
+  background: url(../../img/bg/bg_4.jpg) no-repeat fixed;
   background-size: cover; }
   body.menu-show {
     overflow: hidden;
@@ -7778,7 +7778,7 @@ h1, h2, h3, h4, h5,
         height: 300px; } }
 
 .ftco-services {
-  background: url(../images/food.png) repeat;
+  background: url(../../img/bg/food.png) repeat;
   color: #5c3d03; }
   .ftco-services .overlay {
     position: absolute;
@@ -7936,14 +7936,14 @@ h1, h2, h3, h4, h5,
       font-size: 18px; }
       .pricing-entry .text h3 span {
         background: #121618;
-        background: url(../images/bg_4.jpg) no-repeat fixed;
+        background: url(../../img/bg/image_4.jpg) no-repeat fixed;
         padding-right: 20px; }
     .pricing-entry .text .price {
       width: 80px;
       color: #fac564;
       text-align: right;
       background: #121618;
-      background: url(../images/bg_4.jpg) no-repeat fixed;
+      background: url(../../img/bg/bg_4.jpg) no-repeat fixed;
       font-size: 16px; }
 
 @media (max-width: 991.98px) {
@@ -8207,7 +8207,7 @@ textarea.form-control {
 .ftco-footer {
   font-size: 16px;
   padding: 7em 0;
-  background: #101315; }
+  background: url("../../img/bg/bg_4.jpg") }
   .ftco-footer .ftco-footer-logo {
     text-transform: uppercase;
     letter-spacing: .1em; }
@@ -8973,3 +8973,12 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+
+#menu::before,
+#services::before {
+    display: block;
+    content: " ";
+    margin-top: -75px;
+    height: 75px;
+    visibility: hidden;
+}

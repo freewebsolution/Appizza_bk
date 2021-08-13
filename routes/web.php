@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\PizzaController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -16,10 +17,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+//Route::get('/', function () {
+//    return view('layouts.main');
+//});
+Route::get('/',[HomePageController::class,'index']);
 Route::middleware(['auth'])->group(function(){
     Route::get('dashboard',[DashboardController::class,'index'])->name('dashboard');
     Route::get('profilo',[DashboardController::class,'profile'])->name('profilo');
