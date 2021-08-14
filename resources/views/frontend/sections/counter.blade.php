@@ -1,5 +1,5 @@
 <section class="ftco-counter ftco-bg-dark img" id="section-counter"
-         style="background-image: {{asset('img/bg/bg_2.jpg')}}" data-stellar-background-ratio="0.5">
+         style="background-image:url({{url('img/bg/bg_2.jpg')}});" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">
         <div class="row justify-content-center">
