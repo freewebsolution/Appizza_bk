@@ -19,7 +19,7 @@
                                 <div class="text p-4">
                                     <h3>{{$pizza->name}}</h3>
                                     <p>{{$pizza->ingrediants}}</p>
-                                    <p class="price"><span>{{$pizza->price}} €</span>
+                                    <p class="price"><span>@convert($pizza->price)€</span>
                                         <a href="#"
                                            class="ml-2 btn btn-white btn-outline-white">Order</a>
                                     </p>
@@ -32,7 +32,7 @@
                                 <div class="text p-4">
                                     <h3>{{$pizza->name}}</h3>
                                     <p>{{$pizza->ingrediants}}</p>
-                                    <p class="price"><span>{{$pizza->price}} €</span>
+                                    <p class="price"><span>@convert($pizza->price) €</span>
                                         <a href="#"
                                            class="ml-2 btn btn-white btn-outline-white">Order</a>
                                     </p>
@@ -63,7 +63,7 @@
                                 <div class="desc pl-3">
                                     <div class="d-flex text align-items-center">
                                         <h3><span>{{$pizza->name}}</span></h3>
-                                        <span class="price">{{$pizza->price}} €</span>
+                                        <span class="price">@convert($pizza->price) €</span>
                                     </div>
                                     <div class="d-block">
                                         <p>{{$pizza->ingrediants}}</p>
@@ -81,7 +81,7 @@
                                 <div class="desc pl-3">
                                     <div class="d-flex text align-items-center">
                                         <h3><span>{{$pizza->name}}</span></h3>
-                                        <span class="price">{{$pizza->price}} €</span>
+                                        <span class="price">@convert($pizza->price)€</span>
                                     </div>
                                     <div class="d-block">
                                         <p>{{$pizza->ingrediants}}</p>
