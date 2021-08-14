@@ -7934,10 +7934,11 @@ h1, h2, h3, h4, h5,
     .pricing-entry .text h3 {
       width: calc(100% - 80px);
       font-size: 18px; }
-      .pricing-entry .text h3 span {
+    .pricing-entry .text h3 span {
         background: #121618;
-        background: url(../../img/bg/image_4.jpg) no-repeat fixed;
-        padding-right: 20px; }
+        background: url(../../img/bg/bg_4.jpg) no-repeat fixed;
+        padding-right: 20px;
+    }
     .pricing-entry .text .price {
       width: 80px;
       color: #fac564;
