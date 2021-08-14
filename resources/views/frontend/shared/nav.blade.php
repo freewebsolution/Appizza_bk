@@ -13,6 +13,12 @@
                     <li class="nav-item"><a href="#menu" class="nav-link">Menu</a></li>
                     <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
                     <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                    @if(Auth::user())
+                        <li class="nav-item"><a href="/dashboard" class="nav-link" target="_blank">Accedi
+                                come {{Auth::user()->name}}</a></li>
+                    @else
+                        <li class="nav-item"><a href="/login" class="nav-link" target="_blank">Sign Up</a></li>
+                    @endif
                 </ul>
             </div>
         </div>
