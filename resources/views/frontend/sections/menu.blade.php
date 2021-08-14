@@ -57,7 +57,7 @@
             <div class="row">
                 <div class="col-md-6">
                     @foreach($data['pizzaList'] as $pizza)
-                        @if($loop->index <= ($data['counter']) -1)
+                        @if($loop->index <= ($data['counter']))
                             <div class="pricing-entry d-flex ftco-animate">
                                 <div class="img" style="background-image: url({{$pizza->featured_image}})"></div>
                                 <div class="desc pl-3">
@@ -75,7 +75,7 @@
                 </div>
                 <div class="col-md-6">
                     @foreach($data['pizzaList'] as $pizza)
-                        @if($loop->index >= ($data['counter']))
+                        @if($loop->index >= ($data['counter'])+1)
                             <div class="pricing-entry d-flex ftco-animate">
                                 <div class="img" style="background-image: url({{$pizza->featured_image}})"></div>
                                 <div class="desc pl-3">

@@ -1,6 +1,6 @@
 <div id="test1">
     <section class="ftco-about d-md-flex">
-        <div class="one-half img" style="background-image: url({{url('img/bg/about.jpg')}});"></div>
+        <div class="one-half img" style="background-image:url({{url('img/bg/about.jpg')}});"></div>
         <div class="one-half ftco-animate">
             <div class="heading-section ftco-animate ">
                 <h2 class="mb-4">Welcome to <span class="flaticon-pizza">Pizza</span> A Restaurant</h2>
